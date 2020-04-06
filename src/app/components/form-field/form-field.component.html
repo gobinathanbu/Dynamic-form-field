@@ -1,28 +1,65 @@
-<h2 class="text-center mb-4">Personal Details</h2>
 <div class="container text pt-4">
     <div class="row justify-content-center">
-        <div class="col-md-6">
-            <form class="example-form">
+        <div class="col-md-10">
+            <h2 class="text-left mb-4">Personal Details</h2>
+            <form class="example-form" [formGroup]="dynamicForm">
                 <div class="row">
                     <div class="col-sm-12">
                         <mat-form-field class="example-full-width">
-                            <input matInput placeholder="Name" value="">
+                            <input matInput placeholder="Name" formControlName="name">
                         </mat-form-field>
                         <mat-form-field class="example-full-width">
-                            <input matInput placeholder="Age" value="">
+                            <input matInput placeholder="Age" formControlName="age">
                         </mat-form-field>
                         <mat-form-field class="example-full-width">
-                            <input matInput placeholder="Phone Number" value="">
+                            <input matInput placeholder="Phone Number" formControlName="phoneNumber">
                         </mat-form-field>
                         <mat-form-field class="example-full-width">
-                            <input matInput placeholder="Email" value="">
+                            <input matInput placeholder="Email" formControlName="email">
                         </mat-form-field>
-
                     </div>
-                    <div class="col-sm-12">
-                        <mat-form-field class="example-full-width">
-                            <textarea matInput placeholder="Leave a comment"></textarea>
-                        </mat-form-field>
+                    <div class="col-sm-12 pt-2">
+                        <h6 class="text-primary">EDUCATION - DETAILS</h6>
+                        <div formArrayName="education">
+                            <div class="row" *ngFor="let education of dynamicForm.controls.education['controls'];let i = index" [formGroupName]="i">
+                                <div class="col-3">
+                                    <mat-form-field>
+                                        <mat-select placeholder="Select me" formControlName="course">
+                                            <mat-option value="option">Option</mat-option>
+                                            <mat-option value="SSLC">SSLC</mat-option>
+                                            <mat-option value="HSC">HSC</mat-option>
+                                            <mat-option value="UG">UG</mat-option>
+                                            <mat-option value="PG">PG</mat-option>
+                                        </mat-select>
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-5">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="Institute Name" formControlName="institute">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-3">
+                                    <mat-form-field class="example-full-width">
+                                        <input matInput placeholder="City" formControlName="city">
+                                    </mat-form-field>
+                                </div>
+                                <div class="col-1">
+                                    <button mat-mini-fab class="bg-danger" *ngIf="i>0" (click)="removeCourse(i)">
+                                <mat-icon>-</mat-icon>
+                                </button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <button mat-mini-fab class="bg-success" (click)="addCourse()">
+                                <mat-icon >add</mat-icon>
+                            </button>
+                        </div>
+                        <div class="form-group mt-4">
+                            <div class="text-right">
+                                <button mat-raised-button color="primary" (click)="courseDetails()">Submit</button>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </form>
