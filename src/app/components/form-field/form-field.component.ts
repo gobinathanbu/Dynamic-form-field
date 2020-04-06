@@ -11,7 +11,7 @@ export class FormFieldComponent implements OnInit {
     constructor(private _fb: FormBuilder) { }
 
     get educationArray() {
-      return this.dynamicForm.get('education') as FormArray;
+        return this.dynamicForm.get('education') as FormArray;
     }
 
     ngOnInit() {
@@ -25,21 +25,21 @@ export class FormFieldComponent implements OnInit {
     }
 
     educationGroup() {
-      return this._fb.group({
-        course: new FormControl(''),
-        institute: new FormControl(''),
-        city: new FormControl(''),
-      });
+        return this._fb.group({
+            course: new FormControl(''),
+            institute: new FormControl(''),
+            city: new FormControl(''),
+        });
     }
 
     addCourse() {
-      this.educationArray.push(this.educationGroup());
+        this.educationArray.push(this.educationGroup());
     }
     removeCourse(id) {
-      this.educationArray.removeAt(id)
+        this.educationArray.removeAt(id);
     }
     courseDetails() {
-      const value = this.dynamicForm.value;
-      console.log(value);
+        const value = this.dynamicForm.value;
+        console.log(value);
     }
 }
