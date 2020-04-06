@@ -22,7 +22,7 @@
                         <h6 class="text-primary">EDUCATION - DETAILS</h6>
                         <div formArrayName="education">
                             <div class="row" *ngFor="let education of dynamicForm.controls.education['controls'];let i = index" [formGroupName]="i">
-                                <div class="col-3">
+                                <div class="col-12 col-sm-3">
                                     <mat-form-field>
                                         <mat-select placeholder="Select me" formControlName="course">
                                             <mat-option value="option">Option</mat-option>
@@ -33,17 +33,17 @@
                                         </mat-select>
                                     </mat-form-field>
                                 </div>
-                                <div class="col-5">
+                                <div class="col-12 col-sm-5">
                                     <mat-form-field class="example-full-width">
                                         <input matInput placeholder="Institute Name" formControlName="institute">
                                     </mat-form-field>
                                 </div>
-                                <div class="col-3">
+                                <div class="col-10 col-sm-3">
                                     <mat-form-field class="example-full-width">
                                         <input matInput placeholder="City" formControlName="city">
                                     </mat-form-field>
                                 </div>
-                                <div class="col-1">
+                                <div class="col-2 col-sm-1">
                                     <button mat-mini-fab class="bg-danger" *ngIf="i>0" (click)="removeCourse(i)">
                                 <mat-icon>remove</mat-icon>
                                 </button>

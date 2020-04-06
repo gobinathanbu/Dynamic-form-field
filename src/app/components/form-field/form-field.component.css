@@ -10,3 +10,8 @@
 .example-full-width {
     width: 100%;
 }
+
+body {
+    background: linear-gradient(55deg, #000850 0%, #000320 100%), radial-gradient(100% 225% at 100% 0%, #FF6928 0%, #000000 100%), linear-gradient(235deg, #BDFF00 0%, #000000 100%), linear-gradient(180deg, #002BDC 0%, #002BDC 45%, #2F4BFF 45%, #2F4BFF 60%, #00A6E7 60%, #00A6E7 80%, #FFE37F 80%, #FFE37F 100%);
+    background-blend-mode: screen, overlay, hard-light, normal;
+}
